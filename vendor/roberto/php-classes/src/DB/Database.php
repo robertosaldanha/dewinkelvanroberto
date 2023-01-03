@@ -25,7 +25,7 @@ Class Database {
 	{
 		foreach ($parameters as $key => $value){
 
-			$this -> bindParams ($statement, $key, $value);
+			$this -> bindParam ($statement, $key, $value);
 		}
 	}
 
