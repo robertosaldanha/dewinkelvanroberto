@@ -35,6 +35,15 @@ class Model
 	{
 		return $this -> values;
 	}
+	
+	/*private function setData($data = [])
+	{
+		foreach ($data as $key => $value) 
+		{
+			$this -> tpl -> assign ($key, $value);
+		}
+	}
+	*/
 }
 
 
