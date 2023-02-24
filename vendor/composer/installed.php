@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'roberto/dewinkelvanroberto',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '4fd86f2439c923c592a3f35b4058dc45b4b07405',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'roberto/dewinkelvanroberto' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '4fd86f2439c923c592a3f35b4058dc45b4b07405',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

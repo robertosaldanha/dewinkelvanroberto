@@ -31,7 +31,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">diu transa com a bunda</p>
 
     <form action="/admin/login" method="post">
       <div class="form-group has-feedback">
@@ -60,14 +60,14 @@
 
     <div class="social-auth-links text-center">
       <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-        Facebook</a>
+      <a href="http://pornhub.com" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-sex"></i> Sign in using
+        Pornhub</a>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
         Google+</a>
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
+    <a href="/admin/forgot">Esqueci a senha</a><br>
     <a href="/res/admin/register.html" class="text-center">Register a new membership</a>
 
   </div>

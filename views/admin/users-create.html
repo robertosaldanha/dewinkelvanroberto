@@ -26,8 +26,8 @@
         <form role="form" action="/admin/users/create" method="post">
           <div class="box-body">
             <div class="form-group">
-              <label for="desperson">Nome</label>
-              <input type="text" class="form-control" id="desperson" name="desperson" placeholder="Digite o nome">
+              <label for="desperson">Naam</label>
+              <input type="text" class="form-control" id="desperson" name="desperson" placeholder="vul de naam in">
             </div>
             <div class="form-group">
               <label for="deslogin">Login</label>
