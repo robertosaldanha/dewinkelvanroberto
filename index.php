@@ -7,6 +7,7 @@ use \Slim\Slim;
 use \roberto\Page;
 use \roberto\PageAdmin;
 use \roberto\Model\User;
+use \roberto\Model\Category;
 
 $app = new \Slim\Slim();
 
@@ -87,7 +88,7 @@ $app -> get("/admin/users/:iduser/delete", function ($iduser)
 	exit;
 });
 
-//rota para dar update nos usuários já existentes dentro do admin
+//Rota para dar update nos usuários já existentes dentro do admin
 $app -> get("/admin/users/:iduser", function($iduser)
 {
 	User::verifyLogin();
@@ -111,7 +112,7 @@ $app -> get("/admin/users/:iduser", function($iduser)
 	
 });
 
-//rota para salvar no banco
+//Rota para salvar no banco
 $app -> post("/admin/users/create", function()
 {
 	User::verifyLogin();
@@ -127,7 +128,7 @@ $app -> post("/admin/users/create", function()
 	exit;
 });
 
-//salvar o update no do banco
+//Salvar o update no do banco
 $app -> post ("/admin/users/:iduser", function($iduser)
 {
 	User::verifyLogin();
@@ -140,6 +141,7 @@ $app -> post ("/admin/users/:iduser", function($iduser)
 	exit;
 });
 
+//Rota para acessar esqueci a senha
 $app -> get("/admin/forgot", function()
 {
 	$page = new PageAdmin(
@@ -150,6 +152,7 @@ $app -> get("/admin/forgot", function()
 	$page -> setTpl("forgot");
 });
 
+//Rota para acessar esqueci a senha
 $app ->post("/admin/forgot", function()
 {
 	$user = User::getForgot($_POST["email"]);
@@ -157,6 +160,7 @@ $app ->post("/admin/forgot", function()
 	exit;
 });
 
+//Rota para página de sucesso ao enviar email
 $app -> get ("/admin/forgot/sent", function ()
 {
 	$page = new PageAdmin 
@@ -167,6 +171,7 @@ $app -> get ("/admin/forgot/sent", function ()
 	$page -> setTpl ("forgot-sent");
 });
 
+//Rota para inserir o email para resetar password
 $app -> get ("/admin/forgot/reset", function ()
 {
 	$user = User::validForgotDecrypt($_GET["code"]);
@@ -184,6 +189,7 @@ $page -> setTpl ("forgot-reset", array
 
 });
 
+//Rota de sucesso ao enviar email de password reset
 $app -> post("/admin/forgot/reset", function ()
 {
 	$forgot = User::validForgotDecrypt($_POST["code"]);
@@ -206,6 +212,84 @@ $app -> post("/admin/forgot/reset", function ()
 	$page -> setTpl("forgot-reset-success");
 
 }); 
+
+//Rota para acessar categorias
+$app -> get("/admin/categories", function()
+{
+	User::verifyLogin();
+
+	$categories = Category::listAll();
+	$page = new PageAdmin();
+	$page -> setTpl("categories",
+		[	
+			'categories' => $categories
+		]);
+});
+
+//Rota para criar uma categoria
+$app -> get("/admin/categories/create", function()
+{
+	User::verifyLogin();
+
+	$page = new PageAdmin();
+	$page -> setTpl("categories-create");
+});
+
+//Rota para adicionar categoria ao banco
+$app -> post("/admin/categories/create", function()
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> setData($_POST);
+	$category -> save();
+
+	header ('Location: /admin/categories');
+	exit;
+
+});
+
+//Rota do delete das categorias
+$app -> get ("/admin/categories/:idcategory/delete", function ($idcategory)
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> get((int)$idcategory);
+	$category -> delete();
+
+	header ('Location: /admin/categories');
+	exit;
+});		
+
+//Rota para editar as categorias
+$app -> get ("/admin/categories/:idcategory", function ($idcategory)
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> get ((int)$idcategory);
+
+	$page = new PageAdmin();
+	$page -> setTpl("categories-update",
+		[
+			'category' => $category -> getValues()
+		]);	
+});	
+
+//Rota para editar as categorias
+$app -> post ("/admin/categories/:idcategory", function ($idcategory)
+{
+	User::verifyLogin();
+	
+	$category = new Category();
+	$category -> get ((int)$idcategory);
+	$category -> setData($_POST);
+	$category -> save();
+
+	header ('Location: /admin/categories');
+	exit;
+});
 
 $app -> run();
 
