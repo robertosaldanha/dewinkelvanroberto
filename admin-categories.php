@@ -1,7 +1,7 @@
 <?php
 
+use \roberto\PageAdmin;
 use \roberto\Model\User;
-use \roberto\Model\PageAdmin;
 use \roberto\Model\Category;
  
 //Rota para acessar categorias

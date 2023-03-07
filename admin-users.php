@@ -1,7 +1,7 @@
 <?php
 
+use \roberto\PageAdmin;
 use \roberto\Model\User;
-use \roberto\Model\PageAdmin;
 
 //rota para a página de usuários dentro do admin
 $app -> get("/admin/users", function()

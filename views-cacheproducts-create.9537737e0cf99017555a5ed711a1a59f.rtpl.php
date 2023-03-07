@@ -16,8 +16,8 @@
 <section class="content">
 
   <div class="row">
-  	<div class="col-md-12">
-  		<div class="box box-success">
+    <div class="col-md-12">
+      <div class="box box-success">
         <div class="box-header with-border">
           <h3 class="box-title">Novo Produto</h3>
         </div>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
               <label for="desurl">URL</label>
-              <input type="number" class="form-control" id="desurl" name="desurl" step="0.01" placeholder="Digite a URL">
+              <input type="text" class="form-control" id="desurl" name="desurl" placeholder="Digite a URL">
             </div>
           </div>
           <!-- /.box-body -->
@@ -60,7 +60,7 @@
           </div>
         </form>
       </div>
-  	</div>
+    </div>
   </div>
 
 </section>

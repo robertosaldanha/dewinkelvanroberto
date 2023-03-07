@@ -2,12 +2,18 @@
 
 use \roberto\Page;
 use \roberto\Model\Category;
+use \roberto\Model\Product;
 
 //Rota para a home
 $app -> get ('/', function()
 {
+	$products = Product::listAll();
+
 	$page = new Page();
-	$page -> setTpl("index");	
+	$page -> setTpl("index",
+		[
+			'products' => Product::checklist ($products)
+		]);	
 });
 
 //Rota para categoria

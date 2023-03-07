@@ -15,6 +15,18 @@ class Product extends Model
 		return $sql -> select("SELECT * FROM tb_products ORDER BY desproduct");
 	}
 
+	//Método para rodar o getvalues e checkphoto para gerar desphoto
+	public static function checklist($list)
+	{
+		foreach ($list as &$row)
+		{
+			$p = new Product();
+			$p -> setData($row);
+			$row = $p -> getValues();
+		}
+		return $list;
+	}
+
 	public function save()
 	{
 		$sql = new Database();
