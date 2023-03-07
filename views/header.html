@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>De Winkel Van Roberto</title>
+    <title>de winkel van roberto</title>
+    <link rel="icon" type="image/x-icon" href="/res/site/img/favicon_transparent_32x32.png">
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -90,7 +91,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#"><img src="/res/site/img/logo.png"></a></h1>
+                        <h1><a href="http://dewinkelvanroberto.nl"><img src="/res/site/img/header-redimensionado.png"></a></h1>
                     </div>
                 </div>
                 
@@ -116,7 +117,7 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
+                        <li class="active"><a href="http://dewinkelvanroberto.nl">Home</a></li>
                         <li><a href="#">Produtos</a></li>
                         <li><a href="#">Carrinho</a></li>
                     </ul>

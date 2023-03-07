@@ -259,6 +259,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-reorder"></i> <span>Categorias</span></a></li>
+        <li><a href="/admin/products"><i class="fa fa-th"></i> <span>Produtos</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-car"></i> <span>Multilevel</span>
             <span class="pull-right-container">

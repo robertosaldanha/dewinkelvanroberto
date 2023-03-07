@@ -10,7 +10,7 @@ use Rain\Tpl;
 
 class Mailer
 {
-	const USERNAME = "email";
+	const USERNAME = "email";	
 	const PASSWORD = "password";
 	const NAME_FROM = "de winkel van roberto";
 
