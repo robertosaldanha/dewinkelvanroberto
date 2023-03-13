@@ -3,6 +3,7 @@
 use \roberto\PageAdmin;
 use \roberto\Model\User;
 use \roberto\Model\Category;
+use \roberto\Model\Product;
  
 //Rota para acessar categorias
 $app -> get("/admin/categories", function()
@@ -79,6 +80,57 @@ $app -> post ("/admin/categories/:idcategory", function ($idcategory)
 	$category -> save();
 
 	header ('Location: /admin/categories');
+	exit;
+});
+
+//Rota para acessar a página de products/categories
+$app -> get("/admin/categories/:idcategory/products", function($idcategory)
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> get((int)$idcategory);
+
+	$page = new PageAdmin();
+	$page -> setTpl("categories-products",
+	[
+		'category' => $category -> getValues(),
+		'productsRelated' => $category -> getProducts(),
+		'productsNotRelated' => $category -> getProducts(false)
+	]);
+});
+
+//Rota para adicionar um produto a uma categoria
+$app -> get("/admin/categories/:idcategory/products/:idproduct/add", function($idcategory, $idproduct)
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> get((int)$idcategory);
+
+	$product = new Product();
+	$product -> get((int)$idproduct);
+
+	$category -> addProduct($product);
+
+	header("Location: /admin/categories/".$idcategory."/products");
+	exit;
+});
+
+//Rota para remover um produto de uma categoria
+$app -> get("/admin/categories/:idcategory/products/:idproduct/remove", function($idcategory, $idproduct)
+{
+	User::verifyLogin();
+
+	$category = new Category();
+	$category -> get((int)$idcategory);
+
+	$product = new Product();
+	$product -> get((int)$idproduct);
+
+	$category -> removeProduct($product);
+
+	header("Location: /admin/categories/".$idcategory."/products");
 	exit;
 });
 
