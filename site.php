@@ -44,4 +44,18 @@ $app -> get ("/categories/:idcategory", function($idcategory)
 				'pages' => $pages
 			]);
 	});
+
+//Rota para acessar a página de detalhes do produto
+$app -> get("/products/:desurl", function($desurl)
+{
+	$product = new Product();
+	$product -> getFromUrl($desurl);
+
+	$page = new Page();
+	$page -> setTpl("product-detail",
+		[
+			'product' => $product -> getValues(),
+			'categories' => $product -> getCategories()
+		]);
+});
 ?>
